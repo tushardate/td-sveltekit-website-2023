@@ -5,9 +5,14 @@
 	import { onMount } from 'svelte';
 	import VideoJS from '$lib/VideoJS.svelte';
 	import Navigation from '$lib/Navigation.svelte';
+	import { afterNavigate } from '$app/navigation';
 
 	onMount(() => {
 		console.log('mounted');
+	});
+
+	afterNavigate(() => {
+		console.log('after');
 	});
 
 	let playerRef;
@@ -45,7 +50,7 @@
 
 {#key data.pathname}
 	<div
-		class="my-14 mx-0.5"
+		class="my-14"
 		id="main"
 		in:fly={{ easing: circOut, y: 10, duration: 300, delay: 450 }}
 		out:fly={{ easing: circIn, y: -10, duration: 300 }}
@@ -59,6 +64,9 @@
 <style lang="postcss">
 	:global(html) {
 		/* background-color: theme(colors.gray.900); */
-		background-color: #f1f1e9;
+		background-color: #000;
+		color: white;
+		font-family: theme(fontFamily.ppmori);
+		letter-spacing: theme(letterSpacing.tight);
 	}
 </style>

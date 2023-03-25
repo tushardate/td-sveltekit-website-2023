@@ -28,5 +28,8 @@
 		"video.js": "^8.0.4",
 		"vite": "^4.2.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@vime/svelte": "^5.4.0"
+	}
 }
