@@ -19,6 +19,7 @@ module.exports = {
 				5.5: '5.5rem'
 			},
 			letterSpacing: {
+				ultra: '-.125rem',
 				tightest: '-.075rem',
 				tighter: '-.05rem',
 				tight: '-.025rem',
@@ -27,6 +28,9 @@ module.exports = {
 				wider: '.05rem',
 				widest: '.1rem',
 				widestest: '.25rem'
+			},
+			spacing: {
+				'42': '10.5rem'
 			}
 		}
 	},

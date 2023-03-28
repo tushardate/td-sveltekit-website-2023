@@ -22,6 +22,12 @@
 	}
 }
 
+/* @media (max-width: 1024px) {
+	html {
+		font-size: 11px;
+	}
+} */
+
 /* html {
 	cursor: url('/cursor/cursor.svg'), auto;
 } */

@@ -23,7 +23,13 @@
 		<div class="project-thumbnail">
 			<div class="thumbnailRatio relative w-full rounded-lg">
 				<div style:transform={`scale(${scale})`} class="thumbnail absolute w-full h-full">
-					<img class="object-cover w-full" src={`${project.projectDetails.thumbnailCdn}`} alt="" />
+					<img
+						class="object-cover w-full"
+						src={`${project.projectDetails.thumbnailCdn}tr=w-1024`}
+						srcSet={`${project.projectDetails.thumbnailCdn}tr=w-1024 1024w, ${project.projectDetails.thumbnailCdn}tr=w-1920 1920w,`}
+						sizes="(min-width: 1024px) 50vw, 100vw"
+						alt=""
+					/>
 				</div>
 				<div class="w-full h-full">
 					<div style={`opacity: ${bgOpacity}`} class="absolute top-0 left-0 w-full h-full bg" />

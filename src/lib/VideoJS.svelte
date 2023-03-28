@@ -2,27 +2,27 @@
 	import { onMount } from 'svelte';
 	import videojs from 'video.js';
 	import 'video.js/dist/video-js.css';
+	import '../css/td-videojs-skin.scss';
 	import '../css/vim.css';
+	import merge from 'lodash.merge';
+
 	let videoNode;
 
-	const videoJsOptions = {
+	const defaultOptions = {
 		autoplay: false,
 		playbackRates: [0.5, 1, 1.25, 1.5, 2],
 		aspectRatio: '16:9',
 		responsive: true,
 		controls: true,
-		sources: [
-			{
-				src: 'https://d1e4580vw4aku3.cloudfront.net/2ac5c8a5-6428-48e9-bcfa-bf42dd02a098/AppleHLS1/Reddit_YIR-2022_056.m3u8',
-				type: 'application/x-mpegURL'
-			}
-		]
+		sources: []
 	};
 
+	let options = merge(defaultOptions, $$props);
+
+	console.log(options);
+
 	onMount(() => {
-		let player = videojs(videoNode, $$props, function onPlayerReady() {
-			console.log('onPlayerReady');
-		});
+		let player = videojs(videoNode, options);
 
 		if (videoNode) {
 			videoNode.setAttribute('webkit-playsinline', true);
