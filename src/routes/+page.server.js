@@ -1,27 +1,4 @@
-// export const load = async (serverLoadEvent) => {
-// 	const { fetch } = serverLoadEvent;
-// 	const response = await fetch('http://testing.tushardate.com/wp-json/td/v1/projects');
-// 	const projects = await response.json();
-// 	return {
-// 		projects
-// 	};
-// };
-
-const query = `
-	query getProjects {
-		projects (first: 50) {
-			nodes {
-				id
-				slug
-				title
-				projectDetails {
-				  thumbnailCdn
-				  clientName
-				}
-			}
-		}
-	}
-	`;
+import { query } from '$lib/queries/homepageProjectQuery.js';
 
 export async function load({ fetch }) {
 	const response = await fetch(import.meta.env.VITE_PUBLIC_WORDPRESS_API_URL, {

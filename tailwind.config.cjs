@@ -8,7 +8,11 @@ module.exports = {
 				tdblue: '#007eff'
 			},
 			fontFamily: {
-				ppmori: ['PP Mori']
+				ppmori: ['PP Mori'],
+				roobert: ['Roobert'],
+				gosha: ['Gosha Sans'],
+				sofia: ['Sofia Pro'],
+				neuemachina: ['Neue Machina']
 			},
 			fontSize: {
 				'5.5xl': '5.5rem'
@@ -30,6 +34,9 @@ module.exports = {
 				widestest: '.25rem'
 			},
 			spacing: {
+				'17': '4.25rem',
+				'18': '4.5rem',
+				'19': '4.75rem',
 				'42': '10.5rem'
 			}
 		}

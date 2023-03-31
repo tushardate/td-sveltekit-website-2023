@@ -1,5 +1,5 @@
 <script>
-	import 'vidstack/styles/defaults.css';
+	import 'vidstack/styles/base.css';
 	import { defineCustomElements } from 'vidstack/elements';
 	import { onMount } from 'svelte';
 
@@ -12,12 +12,7 @@
 </script>
 
 <!-- remove `controls` attribute if you're designing a custom UI -->
-<media-player class="video-player" {src} {poster} controls {...$$props}>
+<media-player {src} {poster} controls>
 	<media-outlet />
 </media-player>
 
-<style>
-	.video-player {
-		color: red !important;
-	}
-</style>
