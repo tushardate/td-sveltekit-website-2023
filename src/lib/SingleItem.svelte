@@ -2,7 +2,7 @@
 	export let data;
 </script>
 
-<div>
+<div class="flex gap-6">
 	{#if data.fieldGroupName === 'Project_ProjectItem_groupRowRepeater_groupRowRepeaterItems_SingleItem_SingleItemTextBlock'}
 		{#if data.contentTextItem !== ''}
 			<div>{data.contentTextItem}</div>

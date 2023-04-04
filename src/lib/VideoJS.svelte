@@ -2,8 +2,8 @@
 	import { onMount } from 'svelte';
 	import videojs from 'video.js';
 	import 'video.js/dist/video-js.css';
-	import '../css/td-videojs-skin.scss';
-	import '../css/vim.css';
+	// import '../css/td-videojs-skin.scss';
+	// import '../css/vim.css';
 	import merge from 'lodash.merge';
 
 	let videoNode;
@@ -19,7 +19,6 @@
 
 	let options = merge(defaultOptions, $$props);
 
-	console.log(options);
 
 	onMount(() => {
 		let player = videojs(videoNode, options);
@@ -37,6 +36,6 @@
 	});
 </script>
 
-<div class="video-js-box vim-css" data-vjs-player>
-	<video bind:this={videoNode} class="video-js" />
+<div class="video-js-box" data-vjs-player>
+	<video bind:this={videoNode} class="video-js vjs-default-skin" />
 </div>

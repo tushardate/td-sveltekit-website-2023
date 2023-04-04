@@ -4,11 +4,19 @@
 	import { cubicOut, quartOut } from 'svelte/easing';
 	import { cursorStore, isNone } from '$lib/stores/CursorStore.js';
 
-	let coords = spring(
+	// let coords = spring(
+	// 	{ x: 300, y: 0 },
+	// 	{
+	// 		stiffness: 0.15,
+	// 		damping: 0.5
+	// 	}
+	// );
+
+	let coords = tweened(
 		{ x: 300, y: 0 },
 		{
-			stiffness: 0.15,
-			damping: 0.5
+			duration: 150,
+			easing: cubicOut
 		}
 	);
 
@@ -46,15 +54,15 @@
 	};
 
 	const handleCursorDown = (e) => {
-        if($cursorStore.shape !== 'none') {
-            size.set(0.85, {duration: 100})
-        }
-    }
-    const handleCursorUp = (e) => {
-        if($cursorStore.shape !== 'none') {
-            size.set(1, {duration: 100})
-        }
-    }
+		if ($cursorStore.shape !== 'none') {
+			size.set(0.85, { duration: 100 });
+		}
+	};
+	const handleCursorUp = (e) => {
+		if ($cursorStore.shape !== 'none') {
+			size.set(1, { duration: 100 });
+		}
+	};
 
 	$: cursorMove = `transform: translate(${$coords.x}px, ${$coords.y}px)`;
 
@@ -66,13 +74,13 @@
 		// 	elem.addEventListener('mouseleave', handleNavigationLeave);
 		// }
 		document.addEventListener('mousemove', updatePosition);
-        document.addEventListener('mousedown', handleCursorDown);
-        document.addEventListener('mouseup', handleCursorUp);
+		document.addEventListener('mousedown', handleCursorDown);
+		document.addEventListener('mouseup', handleCursorUp);
 
 		return () => {
 			document.removeEventListener('mousemove', updatePosition);
-            document.removeEventListener('mousedown', handleCursorDown);
-            document.removeEventListener('mouseup', handleCursorUp);
+			document.removeEventListener('mousedown', handleCursorDown);
+			document.removeEventListener('mouseup', handleCursorUp);
 			// for (let elem of atags) {
 			// 	elem.removeEventListener('mouseover', handleNavigationHover);
 			// 	elem.removeEventListener('mouseleave', handleNavigationLeave);

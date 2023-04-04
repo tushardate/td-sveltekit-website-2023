@@ -6,14 +6,30 @@
 	import VideoPoster from '$lib/VideoPoster.svelte';
 	import Vidstack from '$lib/Vidstack.svelte';
 	import Plyr from '$lib/Plyr.svelte';
-	import VimeoJs from '$lib/VimeoJS.svelte';
 	import { onMount } from 'svelte';
 	import { isNone } from '$lib/stores/CursorStore';
+	import VideoJs2 from '$lib/VideoJS2.svelte';
 	export let data;
 	const { project } = data;
 	const { projectDetails, title, featuredImage, project_item } = project;
 	const { projectHeadline, generalProjectDescription, clientName } = projectDetails;
 	const { groupRowRepeater } = project_item;
+
+	const videoJsOptions = {
+		poster:
+			'https://d325dhkqvbsrkz.cloudfront.net/eae27e6e-76ec-47f3-8ade-dc0365ee1be1/Thumbnails/PayPal_NoPresents_1920x1080_THUMBS_16x9_1920x1080.0000008.jpg',
+		autoplay: false,
+		playbackRates: [0.5, 1, 1.25, 1.5, 2],
+		aspectRatio: '16:9',
+		responsive: true,
+		controls: true,
+		sources: [
+			{
+				src: 'https://d325dhkqvbsrkz.cloudfront.net/eae27e6e-76ec-47f3-8ade-dc0365ee1be1/AppleHLS1/PayPal_NoPresents_1920x1080.m3u8',
+				type: 'application/x-mpegURL'
+			}
+		]
+	};
 
 	// let currentIdx;
 	// let next;
@@ -68,7 +84,7 @@
 <div class="w-full px-20 pt-20 td-letter-spacing">
 	<div class="project-details-wrapper mb-20 flex justify-between">
 		<div class="w-2/5">
-			<p class="headline text-5xl">
+			<p class="headline text-5xl leading-tightest">
 				{projectHeadline ? projectHeadline : title}
 			</p>
 		</div>
@@ -81,8 +97,11 @@
 		<Plyr />
 	</div>
 
+	<div class="w-full">
+		<VideoJs2 {...videoJsOptions} />
+	</div>
+
 	<Vidstack
-		aspect-ratio="16/9"
 		src="https://d325dhkqvbsrkz.cloudfront.net/eae27e6e-76ec-47f3-8ade-dc0365ee1be1/AppleHLS1/PayPal_NoPresents_1920x1080.m3u8"
 		poster="https://d325dhkqvbsrkz.cloudfront.net/eae27e6e-76ec-47f3-8ade-dc0365ee1be1/Thumbnails/PayPal_NoPresents_1920x1080_THUMBS_16x9_1920x1080.0000008.jpg"
 	/>
