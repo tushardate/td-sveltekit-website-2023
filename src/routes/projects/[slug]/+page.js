@@ -1,4 +1,4 @@
-import { TEMP as query  } from '$lib/queries/singleProjectQuery';
+import { query } from '$lib/queries/singleProjectQuery';
 
 export async function load({ fetch, params }) {
 	const response = await fetch(import.meta.env.VITE_PUBLIC_WORDPRESS_API_URL, {
@@ -16,10 +16,16 @@ export async function load({ fetch, params }) {
 
 	if (response.ok) {
 		const responseObj = await response.json();
-		const { project } = responseObj.data;
+		const { project, projects } = responseObj.data;
+		let allProjects = projects.nodes;
+		let currentIdx = allProjects.findIndex((e) => e.id == project.id);
+		const nextIdx = (currentIdx + 1) % allProjects.length;
+		const prevIdx = (currentIdx - 1 + allProjects.length) % allProjects.length;
 
 		return {
-			project
+			project,
+			prev: allProjects[prevIdx],
+			next: allProjects[nextIdx]
 		};
 	}
 

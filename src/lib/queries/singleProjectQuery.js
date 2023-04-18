@@ -1,108 +1,59 @@
 export const query = `query getProjectBySlug($slug: ID!) {
-	project(id: $slug, idType: SLUG) {
-	  id
-	  slug
-	  title
-	  projectId
-	  projectDetails {
-      generalProjectDescription
-      projectHeadline
-      clientName
-	  }
-	  project_item {
-      groupRowRepeater {
-        groupRowRepeaterClasses
-        groupRowRepeaterWidth
-        groupRowRepeaterItems {
-          singleItemClasses
-          singleItemWidth
-        }
-		}
-	  }
-	  featuredImage {
-      node {
-        srcSet(size: THUMBNAIL)
-      }
-	  }
-	}
-  }`;
-
-export const SINGLE_PROJECT_QUERY = `query getProjectBySlug($slug: ID!) {
-	project(id: $slug, idType: SLUG) {
-	  id
-	  slug
-	  title
-	  projectId
-	  projectDetails {
-      generalProjectDescription
-      projectHeadline
-      clientName
-	  }
-	  project_item {
-      groupRowRepeater {
-        groupRowRepeaterClasses
-        groupRowRepeaterWidth
-        groupRowRepeaterItems {
-          singleItemClasses
-          singleItemWidth
-        }
-		}
-	  }
-	  featuredImage {
-      node {
-        srcSet(size: THUMBNAIL)
-      }
-	  }
-	}
-  }`;
-
-export const TEMP = `query getProjectBySlug($slug: ID!) {
   project(id: $slug, idType: SLUG) {
-    id
-    slug
-    title
-    projectId
-    projectDetails {
-      generalProjectDescription
-      projectHeadline
-      clientName
-    }
-    project_item {
-      groupRowRepeater {
-        groupRowRepeaterClasses
-        groupRowRepeaterWidth
-        groupRowRepeaterItems {
-          singleItemClasses
-          singleItemWidth
-          singleItem {
-            __typename
-            ... on Project_ProjectItem_groupRowRepeater_groupRowRepeaterItems_SingleItem_SingleItemTextBlock {
-              textItemClasses
-              contentTextItem
-              fieldGroupName
-            }
-            ... on Project_ProjectItem_groupRowRepeater_groupRowRepeaterItems_SingleItem_SingleItemImage {
-              imageItemClasses
-              contentImage {
-                sourceUrl
-              }
-              fieldGroupName
-            }
-            ... on Project_ProjectItem_groupRowRepeater_groupRowRepeaterItems_SingleItem_SingleItemVideo {
-              videoRatio
-              videoItemClasses
-              contentVideo
-              contentVideoId
-              fieldGroupName
-            }
+    project {
+      headline
+      summary
+      thumbnailImage
+      thumbnailVideo
+      sections {
+        sectionClasses
+        items {
+          ... on Project_Project_sections_Items_Text {
+            content
+            fieldGroupName
+            textClasses
+          }
+          ... on Project_Project_sections_Items_Image {
+            fieldGroupName
+            imageClasses
+            url
+          }
+          ... on Project_Project_sections_Items_Video {
+            fieldGroupName
+            url
+            poster
+            videoClasses
+            type
+          }
+          ...on Project_Project_sections_Items_Embed {
+            content
+            embedClasses
+            fieldGroupName
           }
         }
       }
-    }
-    featuredImage {
-      node {
-        srcSet(size: THUMBNAIL)
+      password {
+        key
+        required
+        message
       }
+      client
+      role
+    }
+    title
+    id
+    slug
+  }
+  projects (first: 50) {
+    nodes {
+      project {
+        client
+        thumbnailImage
+        thumbnailVideo
+      }
+      title
+      slug
+      id
     }
   }
 }`;

@@ -29,7 +29,7 @@
 		font-style: normal;
 		font-display: swap;
 	}
-	
+
 	@font-face {
 		font-family: 'Roobert';
 		src: url('/fonts/Roobert/Roobert-Regular.woff2') format('woff2'),
@@ -47,7 +47,7 @@
 		font-style: normal;
 		font-display: swap;
 	}
-	
+
 	@font-face {
 		font-family: 'Gosha Sans';
 		src: url('/fonts/Gosha/GoshaSans-Light.woff2') format('woff2'),
@@ -56,7 +56,7 @@
 		font-style: normal;
 		font-display: swap;
 	}
-	
+
 	@font-face {
 		font-family: 'Gosha Sans';
 		src: url('/fonts/Gosha/GoshaSans-Regular.woff2') format('woff2'),
@@ -65,7 +65,7 @@
 		font-style: normal;
 		font-display: swap;
 	}
-	
+
 	@font-face {
 		font-family: 'Sofia Pro';
 		src: url('/fonts/Sofia/SofiaPro-Light.woff2') format('woff2'),
@@ -74,7 +74,7 @@
 		font-style: normal;
 		font-display: swap;
 	}
-	
+
 	@font-face {
 		font-family: 'Sofia Pro';
 		src: url('/fonts/Sofia/SofiaPro-Regular.woff2') format('woff2'),
@@ -83,7 +83,7 @@
 		font-style: normal;
 		font-display: swap;
 	}
-	
+
 	@font-face {
 		font-family: 'Sofia Pro';
 		src: url('/fonts/Sofia/SofiaPro-Bold.woff2') format('woff2'),
@@ -92,33 +92,251 @@
 		font-style: normal;
 		font-display: swap;
 	}
-	
+
 	@font-face {
-		font-family: "Neue Machina";
-		src: url("/fonts/NeueMachina/NeueMachina-Bold.woff2") format("woff2"),
-		  url("/fonts/NeueMachina/NeueMachina-Bold.woff") format("woff");
+		font-family: 'Neue Machina';
+		src: url('/fonts/NeueMachina/NeueMachina-Bold.woff2') format('woff2'),
+			url('/fonts/NeueMachina/NeueMachina-Bold.woff') format('woff');
 		font-weight: bold;
 		font-style: normal;
 		font-display: swap;
-	  }
-	  
-	  @font-face {
-		font-family: "Neue Machina";
-		src: url("/fonts/NeueMachina/NeueMachina-Black.woff2") format("woff2"),
-		  url("/fonts/NeueMachina/NeueMachina-Black.woff") format("woff");
+	}
+
+	@font-face {
+		font-family: 'Neue Machina';
+		src: url('/fonts/NeueMachina/NeueMachina-Black.woff2') format('woff2'),
+			url('/fonts/NeueMachina/NeueMachina-Black.woff') format('woff');
 		font-weight: 900;
 		font-style: normal;
 		font-display: swap;
-	  }
+	}
 
-	  @font-face {
-		font-family: "Neue Machina";
-		src: url("/fonts/NeueMachina/NeueMachina-Regular.woff2") format("woff2"),
-		  url("/fonts/NeueMachina/NeueMachina-Regular.woff") format("woff");
+	@font-face {
+		font-family: 'Neue Machina';
+		src: url('/fonts/NeueMachina/NeueMachina-Regular.woff2') format('woff2'),
+			url('/fonts/NeueMachina/NeueMachina-Regular.woff') format('woff');
 		font-weight: normal;
 		font-style: normal;
 		font-display: swap;
-	  }
+	}
+
+	@font-face {
+		font-family: 'TT Norms Pro';
+		src: url('/fonts/TTNorms/TTNormsPro-Regular.woff2') format('woff2'),
+			url('/fonts/TTNorms/TTNormsPro-Regular.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'TT Norms Pro';
+		src: url('/fonts/TTNorms/TTNormsPro-Bold.woff2') format('woff2'),
+			url('/fonts/TTNorms/TTNormsPro-Bold.woff') format('woff');
+		font-weight: bold;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'TT Norms Pro';
+		src: url('/fonts/TTNorms/TTNormsPro-Black.woff2') format('woff2'),
+			url('/fonts/TTNorms/TTNormsPro-Black.woff') format('woff');
+		font-weight: 900;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Gilroy';
+		src: url('/fonts/Gilroy/Gilroy-Regular.woff2') format('woff2'),
+			url('/fonts/Gilroy/Gilroy-Regular.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Gilroy';
+		src: url('/fonts/Gilroy/Gilroy-Bold.woff2') format('woff2'),
+			url('/fonts/Gilroy/Gilroy-Bold.woff') format('woff');
+		font-weight: bold;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Gilroy';
+		src: url('/fonts/Gilroy/Gilroy-Black.woff2') format('woff2'),
+			url('/fonts/Gilroy/Gilroy-Black.woff') format('woff');
+		font-weight: 900;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Mori Gothic';
+		src: url('/fonts/Mori/MoriGothic-Bold.woff2') format('woff2'),
+			url('/fonts/Mori/MoriGothic-Bold.woff') format('woff');
+		font-weight: bold;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Mori Gothic';
+		src: url('/fonts/Mori/MoriGothic-ExtraLight.woff2') format('woff2'),
+			url('/fonts/Mori/MoriGothic-ExtraLight.woff') format('woff');
+		font-weight: 200;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Mori Gothic';
+		src: url('/fonts/Mori/MoriGothic-Normal.woff2') format('woff2'),
+			url('/fonts/Mori/MoriGothic-Normal.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Moret';
+		src: url('/fonts/Moret/Moret-Bold.woff2') format('woff2'),
+			url('/fonts/Moret/Moret-Bold.woff') format('woff');
+		font-weight: bold;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Moret';
+		src: url('/fonts/Moret/Moret-Regular.woff2') format('woff2'),
+			url('/fonts/Moret/Moret-Regular.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Moret';
+		src: url('/fonts/Moret/Moret-ExtraBold.woff2') format('woff2'),
+			url('/fonts/Moret/Moret-ExtraBold.woff') format('woff');
+		font-weight: bold;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Circular Std';
+		src: url('/fonts/Circular/CircularStd-Book.woff2') format('woff2'),
+			url('/fonts/Circular/CircularStd-Book.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Circular Std';
+		src: url('/fonts/Circular/CircularStd-Bold.woff2') format('woff2'),
+			url('/fonts/Circular/CircularStd-Bold.woff') format('woff');
+		font-weight: bold;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Circular Std';
+		src: url('/fonts/Circular/CircularStd-Black.woff2') format('woff2'),
+			url('/fonts/Circular/CircularStd-Black.woff') format('woff');
+		font-weight: 900;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Manrope';
+		src: url('/fonts/Manrope/Manrope-Bold.woff2') format('woff2'),
+			url('/fonts/Manrope/Manrope-Bold.woff') format('woff');
+		font-weight: bold;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Manrope';
+		src: url('/fonts/Manrope/Manrope-ExtraBold.woff2') format('woff2'),
+			url('/fonts/Manrope/Manrope-ExtraBold.woff') format('woff');
+		font-weight: bold;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Manrope';
+		src: url('/fonts/Manrope/Manrope-Regular.woff2') format('woff2'),
+			url('/fonts/Manrope/Manrope-Regular.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'La Nord';
+		src: url('/fonts/LaNord/LaNord-Regular.woff2') format('woff2'),
+			url('/fonts/LaNord/LaNord-Regular.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'La Nord';
+		src: url('/fonts/LaNord/LaNord-Bold.woff2') format('woff2'),
+			url('/fonts/LaNord/LaNord-Bold.woff') format('woff');
+		font-weight: bold;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'PolySans';
+		src: url('/fonts/PolySans/PolySansTrial-Bulky.woff2') format('woff2'),
+			url('/fonts/PolySans/PolySansTrial-Bulky.woff') format('woff');
+		font-weight: bold;
+		font-style: normal;
+		font-display: swap;
+	}
+	
+	@font-face {
+		font-family: 'PolySans';
+		src: url('/fonts/PolySans/PolySansTrial-BulkyItalic.woff2') format('woff2'),
+			url('/fonts/PolySans/PolySansTrial-BulkyItalic.woff') format('woff');
+		font-weight: bold;
+		font-style: italic;
+		font-display: swap;
+	}
+	
+	@font-face {
+		font-family: 'PolySans';
+		src: url('/fonts/PolySans/PolySansTrial-Slim.woff2') format('woff2'),
+			url('/fonts/PolySans/PolySansTrial-Slim.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+	
+	@font-face {
+		font-family: 'PolySans';
+		src: url('/fonts/PolySans/PolySansTrial-SlimItalic.woff2') format('woff2'),
+			url('/fonts/PolySans/PolySansTrial-SlimItalic.woff') format('woff');
+		font-weight: normal;
+		font-style: italic;
+		font-display: swap;
+	}
+	
+	
 	
 	
 }

@@ -2,6 +2,7 @@
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
 	import { isArrow, isNone } from './stores/CursorStore';
+	import { onMount } from 'svelte';
 	export let project;
 
 	const n = tweened(0, {
@@ -36,8 +37,8 @@
 				<div style:transform={`scale(${scale})`} class="thumbnail absolute w-full h-full">
 					<img
 						class="object-cover w-full"
-						src={`${project.projectDetails.thumbnailCdn}tr=w-1024`}
-						srcSet={`${project.projectDetails.thumbnailCdn}tr=w-1024 1024w, ${project.projectDetails.thumbnailCdn}tr=w-1920 1920w,`}
+						src={`${project.project.thumbnailImage}tr=w-1024`}
+						srcSet={`${project.project.thumbnailImage}tr=w-1024 1024w, ${project.project.thumbnailImage}tr=w-1920 1920w,`}
 						sizes="(min-width: 1024px) 50vw, 100vw"
 						alt=""
 					/>
@@ -45,17 +46,17 @@
 				<div class="w-full h-full">
 					<div style={`opacity: ${bgOpacity}`} class="absolute top-0 left-0 w-full h-full bg" />
 					<div
-						class="absolute top-0 left-0 w-full h-full p-17 flex flex-col gap-2 justify-center items-start"
+						class="absolute top-0 left-0 w-full h-full p-17 flex flex-col gap-2 justify-end items-start"
 					>
 						<p
 							style={`opacity: ${opacity}; transform: translate3d(0, ${yPos}px, 0)`}
-							class=" text-white"
+							class="text-white text-sm"
 						>
-							{project.projectDetails.clientName}
+							{project.project.client}
 						</p>
 						<p
 							style={`opacity: ${opacity}; transform: translate3d(0, ${yPos}px, 0)`}
-							class="text-5xl text-white w-3/5"
+							class="text-4xl text-white w-3/5 font-neuemachina title"
 						>
 							{project.title}
 						</p>
@@ -71,6 +72,10 @@
 <style lang="postcss">
 	.bg {
 		background-color: theme(colors.black);
+	}
+
+	.title {
+		letter-spacing: -0.035em;
 	}
 
 	.thumbnailRatio {

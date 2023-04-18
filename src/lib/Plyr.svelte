@@ -2,7 +2,6 @@
 	import { Plyr } from 'svelte-plyr';
 </script>
 
-<h1>YouTube</h1>
 <Plyr>
 	<div class="plyr__video-embed">
 		<iframe

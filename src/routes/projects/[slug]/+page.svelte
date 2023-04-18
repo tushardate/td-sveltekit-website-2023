@@ -1,187 +1,99 @@
 <script>
-	import { ProjectArray, setAllProjects } from '$lib/stores/ProjectsStore.js';
-	import { query } from '$lib/queries/homepageProjectQuery.js';
 	import SingleItem from '$lib/SingleItem.svelte';
 	import VideoJs from '$lib/VideoJS.svelte';
 	import VideoPoster from '$lib/VideoPoster.svelte';
-	import Vidstack from '$lib/Vidstack.svelte';
-	import Plyr from '$lib/Plyr.svelte';
 	import { onMount } from 'svelte';
 	import { isNone } from '$lib/stores/CursorStore';
 	import VideoJs2 from '$lib/VideoJS2.svelte';
+	import { tweened } from 'svelte/motion';
 	export let data;
-	const { project } = data;
-	const { projectDetails, title, featuredImage, project_item } = project;
-	const { projectHeadline, generalProjectDescription, clientName } = projectDetails;
-	const { groupRowRepeater } = project_item;
+	const { prev, next } = data;
+	const { project, title } = data.project;
+	const { summary, headline, client, role, thumbnailImage, thumbnailVideo, sections } = project;
 
-	const videoJsOptions = {
-		poster:
-			'https://d325dhkqvbsrkz.cloudfront.net/eae27e6e-76ec-47f3-8ade-dc0365ee1be1/Thumbnails/PayPal_NoPresents_1920x1080_THUMBS_16x9_1920x1080.0000008.jpg',
-		autoplay: false,
-		playbackRates: [0.5, 1, 1.25, 1.5, 2],
-		aspectRatio: '16:9',
-		responsive: true,
-		controls: true,
-		sources: [
-			{
-				src: 'https://d325dhkqvbsrkz.cloudfront.net/eae27e6e-76ec-47f3-8ade-dc0365ee1be1/AppleHLS1/PayPal_NoPresents_1920x1080.m3u8',
-				type: 'application/x-mpegURL'
-			}
-		]
-	};
-
-	// let currentIdx;
-	// let next;
-	// let prev;
-
-	// $: console.log(prev, next)
-
-	// onMount(async () => {
-	// 	if ($ProjectArray == null || $ProjectArray.length == 0) {
-	// 		const response = await fetch(import.meta.env.VITE_PUBLIC_WORDPRESS_API_URL, {
-	// 			method: 'POST',
-	// 			headers: {
-	// 				'Content-Type': 'application/json'
-	// 			},
-	// 			body: JSON.stringify({ query })
-	// 		});
-
-	// 		if (response.ok) {
-	// 			const responseObj = await response.json();
-	// 			const projects = responseObj.data.projects.nodes;
-
-	// 			setAllProjects(projects);
-	// 			currentIdx = projects.findIndex((e) => e.id == project.id);
-	// 			next = projects[(currentIdx + 1) % projects.length];
-	// 			prev = projects[(currentIdx - 1 + projects.length) % projects.length];
-	// 		}
-	// 	} else {
-	// 		currentIdx = $ProjectArray.findIndex((e) => e.id == project.id);
-	// 		next = (currentIdx + 1) % $ProjectArray.length;
-	// 		prev = (currentIdx - 1 + $ProjectArray.length) % $ProjectArray.length;
-	// 	}
-	// });
+	let opacity = tweened(0, { duration: 1000 });
 </script>
 
-<div class="w-full h-80 overflow-hidden relative td-letter-spacing">
+<div class="w-full h-80 overflow-hidden relative">
+	<img
+		class="absolute top-0 left-0 right-0 bottom-0 object-cover w-full h-full blur-3xl"
+		src={`${thumbnailImage}tr=w-1920`}
+		alt=""
+	/>
+
 	<div class="overflow-hidden w-full h-full relative">
-		<video
-			class="h-full w-full object-cover"
-			autoplay
-			muted
-			loop
-			src="https://dyjkfe4bneuj4.cloudfront.net/exports/VideoThumb-PayPal-NoPresents.mp4"
-		/>
+		{#if thumbnailVideo}
+			<video
+				on:canplay={() => opacity.set(1)}
+				style="opacity: {$opacity}"
+				class="h-full w-full object-cover"
+				autoplay
+				muted
+				loop
+				src={thumbnailVideo}
+			/>
+		{:else}
+			<div class="absolute inset-0 bg-black opacity-40" />
+			<img class="object-cover w-full h-full" src={`${thumbnailImage}tr=w-1920`} alt="" />
+		{/if}
 	</div>
-	<!-- <img class="h-full w-full object-cover" src="https://ik.imagekit.io/tsswunfp0/Thumbnails_Hi-Res/thumb-1800Tequila_Zri0FONR0.jpg?updatedAt=1679617997883" alt=""> -->
-	<div class="w-3/5 absolute left-0 bottom-0 p-20 text-white">
-		<p class="text-2xl mb-3">{`${clientName}`}</p>
-		<p class="text-8xl font-neuemachina font-bold text-white">{`${title}`}</p>
+	<div class="w-4/5 absolute left-0 bottom-0 px-20 py-16 text-white">
+		<p class="text-2xl mb-6">{`${client}`}</p>
+		<p class="w-4/5 text-8xl font-neuemachina font-bold title text-white">{`${title}`}</p>
 	</div>
 </div>
 
-<div class="w-full px-20 pt-20 td-letter-spacing">
-	<div class="project-details-wrapper mb-20 flex justify-between">
-		<div class="w-2/5">
-			<p class="headline text-5xl leading-tightest">
-				{projectHeadline ? projectHeadline : title}
+<div class="w-full px-20 pt-18">
+	<div class="project-details-wrapper flex justify-between">
+		<div class="w-6/12">
+			<p class="headline text-5xl leading-tighter">
+				{headline ? headline : title}
 			</p>
 		</div>
-		<div class="w-2/6">
-			<p class="text-lg">{generalProjectDescription}</p>
+		<div class="w-4/12">
+			<p class="text-xl pb-6">{summary}</p>
+			<p>{`Role: ${role}`}</p>
 		</div>
 	</div>
 
-	<div class="py-6">
-		<Plyr />
-	</div>
-
-	<div class="w-full">
-		<VideoJs2 {...videoJsOptions} />
-	</div>
-
-	<Vidstack
-		src="https://d325dhkqvbsrkz.cloudfront.net/eae27e6e-76ec-47f3-8ade-dc0365ee1be1/AppleHLS1/PayPal_NoPresents_1920x1080.m3u8"
-		poster="https://d325dhkqvbsrkz.cloudfront.net/eae27e6e-76ec-47f3-8ade-dc0365ee1be1/Thumbnails/PayPal_NoPresents_1920x1080_THUMBS_16x9_1920x1080.0000008.jpg"
-	/>
-
-	<div class="project-details-wrapper mt-24 mb-16 grid gap-4">
-		{#each groupRowRepeater as groupRow}
-			{#each groupRow.groupRowRepeaterItems as row}
-				{#each row.singleItem as singleItem}
-					<div class="grid grid-flow-col gap-6">
-						<SingleItem data={singleItem} />
+	<div class="project-details-wrapper mt-20 grid gap-4">
+		<div class="w-full grid gap-24 text-xl">
+			{#each sections as section}
+				<div class={`grid`}>
+					<div class={`${section.sectionClasses}`}>
+						{#each section.items as item}
+							<SingleItem data={item} />
+						{/each}
 					</div>
-				{/each}
+				</div>
 			{/each}
-		{/each}
+		</div>
 	</div>
 </div>
 
-<!-- {#if prev && next}
-	<div
-		class="z-50 text-red-600 px-20 pt-9 py-18 flex justify-between text-6xl font-neuemachina font-bold"
-	>
-		<a data-sveltekit-noscroll href={`/projects/${prev.slug}`}>PREV</a>
-		<a data-sveltekit-noscroll href={`/projects/${next.slug}`}>NEXT</a>
-	</div>
-{/if} -->
-
-<!-- <script>
-	const videoJsOptions = {
-		poster:
-			'https://d325dhkqvbsrkz.cloudfront.net/eae27e6e-76ec-47f3-8ade-dc0365ee1be1/Thumbnails/PayPal_NoPresents_1920x1080_THUMBS_16x9_1920x1080.0000008.jpg',
-		autoplay: false,
-		playbackRates: [0.5, 1, 1.25, 1.5, 2],
-		aspectRatio: '16:9',
-		responsive: true,
-		controls: true,
-		sources: [
-			{
-				src: 'https://d325dhkqvbsrkz.cloudfront.net/eae27e6e-76ec-47f3-8ade-dc0365ee1be1/AppleHLS1/PayPal_NoPresents_1920x1080.m3u8',
-				type: 'application/x-mpegURL'
-			}
-		]
-	};
-</script> -->
-<!-- 
-<VideoPoster>
-	<source
-		src="https://dyjkfe4bneuj4.cloudfront.net/exports/PRXJ0074000H-DRIP_15.mp4"
-		type="video/mp4"
-	/>
-</VideoPoster>
-<VideoPoster>
-	<source
-		src="https://dyjkfe4bneuj4.cloudfront.net/exports/VideoThumb-PayPal-NoPresents.mp4"
-		type="video/mp4"
-	/>
-</VideoPoster>
-<div class="w-3/5">
-	<VideoJs {...videoJsOptions} />
+<div class="z-50 px-9 pt-20 pb-12 flex justify-between text-5xl font-bold">
+	<a data-sveltekit-noscroll href={`/projects/${prev.slug}`}>Prev</a>
+	<a data-sveltekit-noscroll href={`/projects/${next.slug}`}>Next</a>
 </div>
-<div style="position: relative; padding-top: 56.25%;">
-	<iframe
-		src="https://iframe.mediadelivery.net/embed/107379/b43b0acd-8af0-476c-af79-9884fb32f9c6?autoplay=true"
-		loading="lazy"
-		style="border: none; position: absolute; top: 0; height: 100%; width: 100%;"
-		allow="accelerometer; gyroscope; encrypted-media; picture-in-picture;"
-		allowfullscreen="true"
-	/>
-</div> -->
 
 <style>
 	.h-80 {
-		height: 90vh;
+		height: 100vh;
 		min-height: 400px;
 	}
 	.td-letter-spacing {
-		letter-spacing: -0.02em;
+		letter-spacing: -0.015em;
+	}
+
+	.title {
+		letter-spacing: -0.035em;
+		font-size: 6.5vw;
+		line-height: 0.85em;
 	}
 
 	.headline {
-		letter-spacing: -0.035em;
+		font-size: 3.25vw;
+		letter-spacing: -0.0075em;
 	}
 	.pt {
 		padding-top: 56.25%;

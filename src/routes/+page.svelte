@@ -7,7 +7,7 @@
 </script>
 
 <div class="px-3 mt-40">
-	<p class="text-5.5xl font-neuemachina font-bold uppercase px-16 pb-4 leading-5.5">Projects</p>
+	<!-- <p class="text-5.5xl font-neuemachina font-bold uppercase px-16 pb-4 leading-5.5">Work</p> -->
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
 		{#each projects as project}
 			<ProjectThumbnail {project} />
