@@ -1,10 +1,10 @@
 <script>
 	import SingleItem from '$lib/SingleItem.svelte';
-	import VideoJs from '$lib/VideoJS.svelte';
-	import VideoPoster from '$lib/VideoPoster.svelte';
-	import { onMount } from 'svelte';
+	// import VideoJs from '$lib/VideoJS.svelte';
+	// import VideoPoster from '$lib/VideoPoster.svelte';
+	// import { onMount } from 'svelte';
+	// import VideoJs2 from '$lib/VideoJS2.svelte';
 	import { isNone } from '$lib/stores/CursorStore';
-	import VideoJs2 from '$lib/VideoJS2.svelte';
 	import { tweened } from 'svelte/motion';
 	export let data;
 	const { prev, next } = data;
@@ -16,7 +16,7 @@
 
 <div class="w-full h-80 overflow-hidden relative rounded-b-2xl">
 	<img
-		class="absolute top-0 left-0 right-0 bottom-0 object-cover w-full h-full blur-3xl"
+		class="absolute top-0 left-0 right-0 bottom-0 object-cover w-full h-full blur-3xl scale-125"
 		src={`${thumbnailImage}tr=w-1920`}
 		alt=""
 	/>

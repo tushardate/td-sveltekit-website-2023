@@ -32,6 +32,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-static": "^2.0.2",
 		"@vidstack/player-svelte": "^1.6.0",
 		"@vime/core": "^5.4.0",
 		"@vime/svelte": "^5.4.0",
