@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import Player from './Player.svelte';
-
+	import ImageCompare from './ImageCompare.svelte';
 	export let data;
 </script>
 
@@ -23,4 +23,6 @@
 	<div class={`single-item ${data.embedClasses}`}>
 		<div>{@html data.content}</div>
 	</div>
+{:else if data.fieldGroupName === 'Project_Project_sections_Items_ImageCompare'}
+	<ImageCompare before={data.urlLeft} after={data.urlRight}/>
 {/if}

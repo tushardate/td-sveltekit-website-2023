@@ -14,7 +14,7 @@
 	let opacity = tweened(0, { duration: 1000 });
 </script>
 
-<div class="w-full h-80 overflow-hidden relative">
+<div class="w-full h-80 overflow-hidden relative rounded-b-2xl">
 	<img
 		class="absolute top-0 left-0 right-0 bottom-0 object-cover w-full h-full blur-3xl"
 		src={`${thumbnailImage}tr=w-1920`}
@@ -38,8 +38,8 @@
 		{/if}
 	</div>
 	<div class="w-4/5 absolute left-0 bottom-0 px-20 py-16 text-white">
-		<p class="text-2xl mb-6">{`${client}`}</p>
-		<p class="w-4/5 text-8xl font-neuemachina font-bold title text-white">{`${title}`}</p>
+		<p class="text-2xl mb-4 ml-1">{`${client}`}</p>
+		<p class="w-4/5 text-8xl font-neuemachina title text-white">{`${title}`}</p>
 	</div>
 </div>
 
@@ -87,8 +87,8 @@
 
 	.title {
 		letter-spacing: -0.035em;
-		font-size: 6.5vw;
-		line-height: 0.85em;
+		font-size: 7.5vw;
+		line-height: 0.9em;
 	}
 
 	.headline {

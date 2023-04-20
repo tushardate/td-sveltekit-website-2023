@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 	import { isArrow, isDot, isNone } from './stores/CursorStore';
 
 	onMount(() => {
@@ -41,13 +42,59 @@
 			</div>
 		</div>
 	</a>
-	<div class="flex gap-8">
-		<a class="p-2 hover:underline" href="/" data-sveltekit-noscroll>Work</a>
-		<a class="p-2 hover:underline" href="/about" data-sveltekit-noscroll>About</a>
+	<div class="flex gap-8 menu">
+		<a class:active={$page.url.pathname === '/'} href="/" data-sveltekit-noscroll
+			>Work</a
+		>
+		<a
+			
+			class:active={$page.url.pathname === '/about'}
+			href="/about"
+			data-sveltekit-noscroll>About</a
+		>
 	</div>
 </div>
 
-<style>
+<style lang="scss">
+	.active {
+		&::after,
+		&::before {
+			width: 100% !important;
+		}
+	}
+	.menu a {
+		position: relative;
+		line-height: 1rem;
+		padding: 4px 0px;
+
+		&:hover {
+			&::after,
+			&::before {
+				width: 100%;
+				left: 0;
+			}
+		}
+
+		&::after,
+		&::before {
+			content: '';
+			position: absolute;
+			top: calc(0% - 3px);
+			width: 0;
+			right: 0;
+			height: 2px;
+			background-color: white;
+		}
+
+		&::before {
+			transition: width 0.25s cubic-bezier(0.51, 0.18, 0, 0.88);
+		}
+
+		&::after {
+			transition: width 0.25s cubic-bezier(0.29, 0.18, 0.26, 0.83);
+		}
+	}
+
 	.logo svg path {
 		fill: white;
 	}
@@ -59,7 +106,7 @@
 	.ticker {
 		display: flex;
 		flex-direction: column;
-		animation: move 10s normal infinite
+		animation: move 10s normal infinite;
 	}
 
 	.message {

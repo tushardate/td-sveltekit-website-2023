@@ -56,7 +56,7 @@
 						</p>
 						<p
 							style={`opacity: ${opacity}; transform: translate3d(0, ${yPos}px, 0)`}
-							class="text-4xl text-white w-3/5 font-neuemachina title"
+							class="text-5xl text-white w-3/5 title"
 						>
 							{project.title}
 						</p>
@@ -75,7 +75,7 @@
 	}
 
 	.title {
-		letter-spacing: -0.035em;
+		letter-spacing: -0.015em;
 	}
 
 	.thumbnailRatio {

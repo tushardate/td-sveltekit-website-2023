@@ -30,6 +30,12 @@ export const query = `query getProjectBySlug($slug: ID!) {
             embedClasses
             fieldGroupName
           }
+          ...on Project_Project_sections_Items_ImageCompare {
+            urlLeft
+            urlRight
+            imageCompareClasses
+            fieldGroupName
+          }
         }
       }
       password {

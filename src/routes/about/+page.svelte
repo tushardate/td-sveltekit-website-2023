@@ -15,7 +15,7 @@
 
 <div class="px-3 my-40">
 	<div class="px-16 text-lg">
-		<div class="headline -ml-2">
+		<div class="headline -ml-2 pb-12">
 			<p class="ml-auto w-5/6 text-8xl font-neuemachina headline">{headline}</p>
 		</div>
 		<div class="contact">
@@ -45,7 +45,7 @@
 				<p class="w-1/6 py-12">Experience</p>
 				<div class="w-5/6 col-count-2 c-gap border-b py-12">
 					{#each workExperience as exp}
-						<div class="pb-4">
+						<div class="pb-4 avoid-break">
 							<p>{exp.expRole}</p>
 							<p class="text-sm">{exp.expAgency}</p>
 							<p class="text-sm">{exp.expDates}</p>
@@ -90,5 +90,8 @@
 	}
 	.col-count-4 {
 		column-count: 4;
+	}
+	.avoid-break {
+		break-inside: avoid;
 	}
 </style>

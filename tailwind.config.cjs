@@ -73,6 +73,7 @@ module.exports = {
 		{ pattern: /^self-.*/ },
 		{ pattern: /^gap-.*/ },
 		{ pattern: /^place-.*/ },
+		{ pattern: /^grid-.*/ },
 		{ pattern: /^max-.*/ },
 		{ pattern: /^p[tmrb]-.*/ },
 		{ pattern: /^m[tmrb]-.*/ },
