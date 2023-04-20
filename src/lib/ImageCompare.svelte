@@ -50,12 +50,12 @@
 	on:mouseover={endTimer}
 	on:mouseout={startTimer}
 >
-	<img class="image image-before" src={before} />
+	<img class="image image-before" src={`${before}tr=w-1920`} />
 	<div class="image-after-wrapper">
 		<img
 			style={`clip-path: polygon(calc(${$pos}% + 1px) 0, 100% 0, 100% 100%, calc(${$pos}% + 1px) 100%);`}
 			class="image image-after"
-			src={after}
+			src={`${after}tr=w-1920`}
 		/>
 	</div>
 </div>
