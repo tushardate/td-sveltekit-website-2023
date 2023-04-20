@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { Plyr } from 'svelte-plyr';
 	import '@vime/core/themes/default.css';
-	import * as pkg from '@vime/core';
+	// import pkg from '@vime/core';
 	import VideoPoster from './VideoPoster.svelte';
-	import Vidstack from './Vidstack.svelte';
-	import { Player, Video, DefaultUi, DefaultControls } from '@vime/svelte';
+	// import Vidstack from './Vidstack.svelte';
+	// import { Player, Video, DefaultUi, DefaultControls } from '@vime/svelte';
 	import { onMount } from 'svelte';
 	let showPlayer = false;
-	let player;
+	// let player;
 	export let type;
 	export let poster;
 	export let src;
