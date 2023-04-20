@@ -2,10 +2,8 @@
 	import { tweened } from 'svelte/motion';
 	import { cubicInOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
-	export let before =
-		'https://ik.imagekit.io/tsswunfp0/Portfolio_Stills/Opendoor-HLH/s_four_peaks_before_MdAPY37xf.jpg?updatedAt=1681881577396';
-	export let after =
-		'https://ik.imagekit.io/tsswunfp0/Portfolio_Stills/Opendoor-HLH/s_four_peaks_after_EQLW38fvo.png?updatedAt=1681881577764';
+	export let before = '';
+	export let after = '';
 
 	let timer;
 	let wrapperWidth;
